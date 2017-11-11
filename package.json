@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sabeersulaiman/ngx-simple-datatable.git"
+    "url": "https://github.com/sabeersulaiman/ngx-simple-table.git"
   },
   "bugs": {
-    "url": "https://github.com/sabeersulaiman/ngx-simple-datatable/issues"
+    "url": "https://github.com/sabeersulaiman/ngx-simple-table/issues"
   },
-  "homepage": "https://github.com/sabeersulaiman/ngx-simple-datatable#readme",
+  "homepage": "https://github.com/sabeersulaiman/ngx-simple-table#readme",
   "scripts": {
     "build": "npm run build:esm && npm run build:umd",
     "build:esm": "gulp inline-templates && npm run ngcompile",
