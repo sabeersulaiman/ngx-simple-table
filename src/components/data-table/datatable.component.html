@@ -1,0 +1,64 @@
+<div class="data-table-wrapper">
+  <data-table-header *ngIf="header"></data-table-header>
+
+  <div class="data-table-box">
+      <table class="table table-bordered data-table">
+          <thead>
+              <tr>
+                  <!-- <th [hide]="!expandColumnVisible" class="expand-column-header"> -->
+                  <th [hide]="!indexColumnVisible" class="index-column-header chead">
+                      <span [textContent]="indexColumnHeader"></span>
+                  </th>
+                  <th [hide]="!selectColumnVisible" class="select-column-header chead">
+                      <input [hide]="!multiSelect" type="checkbox" [(ngModel)]="selectAllCheckbox"/>
+                  </th>
+                  <th *ngFor="let column of columns" #th [hide]="!column.visible" (click)="headerClicked(column, $event)"
+                      [class.sortable]="column.sortable" [class.resizable]="column.resizable"
+                      [ngClass]="column.styleClassObject" class="column-header chead" [style.width]="column.width | px">
+                      
+                      <div class="header-contents">
+                          <div *ngIf="!column.headerTemplate" class="con header">{{column.header}}</div>
+                          <div *ngIf="column.headerTemplate" class="con header">
+                                <span [ngTemplateOutlet]="column.headerTemplate" [ngOutletContext]="{column: column}"></span>
+                          </div>
+                          
+                          <div class="con sort" *ngIf="column.sortable">
+                            <i class="material-icons" [hide]="column.property === sortBy">swap_vert</i>
+                            <div class="con sort" [hide]="column.property !== sortBy">
+                                <i class="material-icons" [hide]="!sortAsc">keyboard_arrow_down</i>
+                                <i class="material-icons" [hide]="sortAsc">keyboard_arrow_up</i>
+                            </div>
+                          </div>
+                          <div *ngIf="column.resizable" class="column-resize-handle" (mousedown)="resizeColumnStart($event, column, th)"></div>
+                      </div>
+                  </th>
+              </tr>
+              <tr class="filters" *ngIf="isFilterRequested()">
+                  <!-- <td [hide]="!expandColumnVisible">&nbsp;</td> -->
+                  <td [hide]="!indexColumnVisible">&nbsp;</td>
+                  <td [hide]="!selectColumnVisible">&nbsp;</td>
+                  <td class="filters" *ngFor="let c of columns" [hide]="!c.visible">
+                      <input (keydown)="filterColumn($event, c)" type="text" class="filter" [placeholder]="c.header" [hide]="!c.filter">
+                  </td>
+              </tr>
+          </thead>
+          <tbody *ngFor="let item of items; let index=index" class="data-table-row-wrapper"
+                 dataTableRow #row [item]="item" [index]="index" (selectedChange)="onRowSelectChanged(row)">
+          </tbody>
+          <tbody class="substitute-rows" *ngIf="pagination && substituteRows">
+              <tr *ngFor="let item of substituteItems, let index = index"
+                  [class.row-o]="(index + items.length) % 2 === 0"
+                  [class.row-e]="(index + items.length) % 2 === 1"
+                  >
+                  <!-- <td [hide]="!expandColumnVisible"></td> -->
+                  <td [hide]="!indexColumnVisible">&nbsp;</td>
+                  <td [hide]="!selectColumnVisible"></td>
+                  <td *ngFor="let column of columns" [hide]="!column.visible">
+              </tr>
+          </tbody>
+      </table>
+      <div class="loading-cover" *ngIf="showReloading && reloading"></div>
+  </div>
+
+  <data-table-pagination *ngIf="pagination"></data-table-pagination>
+</div>
