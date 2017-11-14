@@ -38,7 +38,7 @@
                   <td [hide]="!indexColumnVisible">&nbsp;</td>
                   <td [hide]="!selectColumnVisible">&nbsp;</td>
                   <td class="filters" *ngFor="let c of columns" [hide]="!c.visible">
-                      <input (keydown)="filterColumn($event, c)" type="text" class="filter" [placeholder]="c.header" [hide]="!c.filter">
+                      <input (input)="filterColumn($event, c)" type="text" class="filter" [placeholder]="c.header" [hide]="!c.filter">
                   </td>
               </tr>
           </thead>

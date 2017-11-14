@@ -1,5 +1,5 @@
 <div class="data-table-header">
-  <h4 class="title" [textContent]="dataTable.headerTitle"></h4>
+  <h4 class="title">{{dataTable.headerTitle || ''}}</h4>
   <div class="button-panel">
       <button type="button" class="feature-button"
           (click)="dataTable.reloadItems()">

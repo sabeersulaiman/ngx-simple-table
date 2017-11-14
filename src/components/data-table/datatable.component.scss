@@ -119,6 +119,10 @@ td.filters input {
 .data-table {
     th {
         padding: 0px;
+        white-space: nowrap !important;
+    }
+    td {
+        white-space: nowrap;
     }
 }
 

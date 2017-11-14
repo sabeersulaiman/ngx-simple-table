@@ -429,8 +429,7 @@ export class DataTable implements DataTableParams, OnInit {
             }
         }
 
-        if(e.keyCode === 13)
-        this._triggerReload();
+        this.offset = 0;
     }
 
     isFilterRequested() {
