@@ -19,9 +19,9 @@ import { DataTableResource, DataTableRow } from '../../lib/datatable.module';
       (rowExpanded)="rowExpand($event)"
       (rowCollapsed)="rowCollapsed($event)"
       >
-      <template #dataTableExpand let-item="item">
+      <ng-template #dataTableExpand let-item="item">
         <div [textContent]="norm.description" style="padding: 5px; color: gray"></div>
-    </template>
+      </ng-template>
       <data-table-column
           [property]="'name'"
           [header]="'Name'"

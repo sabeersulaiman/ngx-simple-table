@@ -22,7 +22,7 @@
 .expanded {
   background: #8422b5 !important;
   color: #fff !important;
-  background: linear-gradient(#8422b5, #a120a3, #8422b5) !important;
+  background: linear-gradient(#7819ab, #8520bc, #7819ab) !important;
 }
 
 .expander{
@@ -31,4 +31,7 @@
 
 td {
   white-space: nowrap;
+  border: none !important;
+  font-size: 1em !important;
+  padding: 4px !important;
 }
