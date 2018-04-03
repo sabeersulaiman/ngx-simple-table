@@ -61,4 +61,8 @@ export class DataTableRow implements OnDestroy {
   tryExpansion() {
       this.expanded = !this.expanded;
   }
+
+  SelectionTrigger() {
+      this.selected = !this.selected;
+  }
 }

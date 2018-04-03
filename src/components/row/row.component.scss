@@ -1,5 +1,12 @@
 .select-column {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    // margin-top: 2px;
+    font-size: 22px;
+  }
 }
 
 .row-expand-button {
@@ -12,11 +19,11 @@
 }
 
 .row-o {
-  background-color: #F7F7F7;
+  background-color: #FFF;
 }
 
 .row-e {
-  background-color: #E5DFED;
+  background-color: #F7F7F7;
 }
 
 .expanded {

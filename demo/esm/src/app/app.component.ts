@@ -33,9 +33,9 @@ import { DataTableResource, DataTableRow } from '../../lib/datatable.module';
           [property]="'date'"
           [header]="'Date'"
           [sortable]="true">
-          <template #dataTableCell let-item="item">
+          <ng-template #dataTableCell let-item="item">
               <span>{{item.date | date:'yyyy-MM-dd'}}</span>
-          </template>
+          </ng-template>
       </data-table-column>
       <data-table-column
       [filter]="true"
@@ -55,15 +55,15 @@ import { DataTableResource, DataTableRow } from '../../lib/datatable.module';
           [header]="'Active'"
           [width]="100"
           [resizable]="true">
-          <template #dataTableHeader let-item="item">
+          <ng-template #dataTableHeader let-item="item">
               <span style="color: rgb(232, 0, 0)">Active</span>
-          </template>
-          <template #dataTableCell let-item="item">
+          </ng-template>
+          <ng-template #dataTableCell let-item="item">
               <span style="color: grey">
               <span class="glyphicon glyphicon-ok" *ngIf="item.active"></span>
               <span class="glyphicon glyphicon-remove" *ngIf="!item.active"></span>
               </span>
-          </template>
+          </ng-template>
       </data-table-column>
   </data-table>
 </div>

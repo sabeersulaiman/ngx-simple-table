@@ -442,4 +442,8 @@ export class DataTable implements DataTableParams, OnInit {
         }
         return false;
     }
+
+    SelectionTrigger() {
+        this.selectAllCheckbox = !this.selectAllCheckbox;
+    }
 }
